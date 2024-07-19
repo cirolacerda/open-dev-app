@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssistantController;
 use App\Http\Controllers\DevController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -20,5 +21,11 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/devs', [DevController::class, 'index'])->name('dev.index');
 Route::post('/devs', [DevController::class, 'search'])->name('dev.index');
+
+Route::get('/assistants', [AssistantController::class, 'index'])->name('assistants.index');
+Route::post('/assistants', [AssistantController::class, 'store'])->name('assistants.store');
+Route::delete('/assistants/{assistant}', [AssistantController::class, 'destroy'])->name('assistants.destroy');
+
+Route::get('/assistants/create', [AssistantController::class, 'create'])->name('assistants.create');
 
 require __DIR__.'/auth.php';
