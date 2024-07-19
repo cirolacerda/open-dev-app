@@ -13,7 +13,8 @@ class AssistantController extends Controller
     //Gerencia os assistentes
     public function index(){
 
-        $assistants = User::all();
+        // Busca todos os usuários que têm role_id igual a 3 (assistentes)
+        $assistants = User::where('role_id', 3)->get();
 
         return view('assistant.index', ['assistants' => $assistants]);
     }
