@@ -15,12 +15,16 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dev.index')" :active="request()->routeIs('dev.index')">
-                        {{ __('Search Devs') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('assistants.index')" :active="request()->routeIs('assistants.index')">
-                        {{ __('Manage Assistants ') }}
-                    </x-nav-link>
+                    @can('search-devs')
+                        <x-nav-link :href="route('dev.index')" :active="request()->routeIs('dev.index')">
+                            {{ __('Search Devs') }}
+                        </x-nav-link>
+                    @endcan
+                    @can('manage-assistants')
+                        <x-nav-link :href="route('assistants.index')" :active="request()->routeIs('assistants.index')">
+                            {{ __('Manage Assistants ') }}
+                        </x-nav-link>
+                    @endcan
                 </div>
             </div>
 
