@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <x-application-logo class="block h-20 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
 
@@ -15,9 +15,16 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dev.index')" :active="request()->routeIs('dev.index')">
-                        {{ __('Search Devs') }}
-                    </x-nav-link>
+                    @can('search-devs')
+                        <x-nav-link :href="route('dev.index')" :active="request()->routeIs('dev.index')">
+                            {{ __('Search Devs') }}
+                        </x-nav-link>
+                    @endcan
+                    @can('manage-assistants')
+                        <x-nav-link :href="route('assistants.index')" :active="request()->routeIs('assistants.index')">
+                            {{ __('Manage Assistants ') }}
+                        </x-nav-link>
+                    @endcan
                 </div>
             </div>
 
