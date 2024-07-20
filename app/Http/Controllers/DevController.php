@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\GithubApiService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class DevController extends Controller
 {
@@ -16,11 +17,15 @@ class DevController extends Controller
 
     // Página buscar devs
     public function index() {
+        Gate::authorize('search-devs');
+
         return view('dev.index');
     }
 
     // Método busca e lista devs encontrados no github
-    public function search (Request $request){
+    public function search (Request $request)
+    {
+        Gate::authorize('search-devs');
 
         $query = 'type:' . $request->input('type') . ' ' .
                  'location:' . $request->input('location') . ' ' .
