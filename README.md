@@ -58,10 +58,13 @@ O projeto utiliza o pacote Laravel Sail, Será necessário a instalação do Doc
     ./vendor/bin/sail artisan migrate
     ./vendor/bin/sail artisan db:seed UserSeeder
     ```
-7. Acesse a aplicação
+7. Acesse a aplicação local
     [http://localhost](http://localhost)
 
-8. Usuários
+   Obs.: A aplicação foi hospedada em um servidor e pode ser acessada online em:
+         http://open-dev.aua.tec.br:8001
+
+9. Usuários
     - **Admin**
         - E-mail: admin@teste.com
         - Senha: password
