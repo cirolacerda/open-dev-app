@@ -12,7 +12,7 @@
         <!-- Table -->
         <div class="overflow-x-auto">
             <div
-                class="min-w-screen min-h-screen flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
+                class="min-w-screen min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-800 font-sans overflow-hidden">
                 <div class="w-full lg:w-5/6">
                     <div class="flex items-end justify-end">
                         <a href="{{ route('assistants.create') }}">
@@ -23,19 +23,20 @@
 
                     </div>
 
-                    <div class="bg-white shadow-md rounded my-6">
+                    <div class="bg-white dark:bg-gray-700 shadow-md rounded my-6">
                         <table class="min-w-max w-full table-auto">
                             <thead>
-                                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                <tr
+                                    class="bg-gray-200 dark:bg-gray-500  text-gray-600 dark:text-gray-200 uppercase text-sm leading-normal">
                                     <th class="py-3 px-6 text-left">NAME</th>
                                     <th class="py-3 px-6 text-left">E-MAIL</th>
                                     <th class="py-3 px-6 text-center">STATUS</th>
                                     <th class="py-3 px-6 text-center">ACTION</th>
                                 </tr>
                             </thead>
-                            <tbody class="text-gray-600 text-sm font-light">
+                            <tbody class="text-gray-600 dark:text-gray-200 text-sm font-light">
                                 @foreach ($assistants as $assistant)
-                                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                    <tr class="border-b border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
                                         <td class="py-3 px-6 text-left whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <span class="font-medium">{{ $assistant->name }}</span>
