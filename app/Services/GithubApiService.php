@@ -18,8 +18,8 @@ class GithubApiService {
 
         ]);
 
-        $items = $response->json()['items'];
-        $total = $response->json()['total_count'];
+        $items = $response->json()['items'] ?? [];
+        $total = $response->json()['total_count'] ?? 0;
 
         return new LengthAwarePaginator($items,$total,$perPage,$page, [ 'path' => LengthAwarePaginator::resolveCurrentPath(),]);
     }
