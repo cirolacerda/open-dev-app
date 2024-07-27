@@ -28,7 +28,7 @@
         <tbody>
             @if (isset($devs))
 
-                @foreach ($devs['items'] as $dev)
+                @foreach ($devs as $dev)
                     <tr
                         class="bg-white border-b dark:bg-gray-600 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900">
                         <td class="w-4 p-4">
@@ -76,10 +76,17 @@
                         </td>
                     </tr>
                 @endforeach
+
             @endif
 
         </tbody>
     </table>
+
+    <!-- Paginação -->
+    <div class="mt-10 justify-content-center">
+        {{ $devs->appends(request()->except('page'))->links() }}
+    </div>
+
     <!-- Stats Dev modal -->
     <div id="statsDevModal" tabindex="-1" aria-hidden="true"
         class="modal fixed z-50 flex items-center justify-center hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -129,6 +136,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- JavaScript for Modal -->
 <script>
