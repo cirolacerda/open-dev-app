@@ -26,7 +26,7 @@
             </tr>
         </thead>
         <tbody>
-            @if (isset($devs))
+            @if (isset($devs) && $devs->count())
 
                 @foreach ($devs as $dev)
                     <tr
