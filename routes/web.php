@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/devs', [DevController::class, 'index'])->name('dev.index');
 Route::post('/devs', [DevController::class, 'search'])->name('dev.index');
+Route::get('/devs', [DevController::class, 'search'])->name('dev.search');
 
 Route::get('/assistants', [AssistantController::class, 'index'])->name('assistants.index');
 Route::post('/assistants', [AssistantController::class, 'store'])->name('assistants.store');

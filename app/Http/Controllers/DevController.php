@@ -33,7 +33,9 @@ class DevController extends Controller
                  'repos:>' . $request->input('repos') . ' ' .
                  'followers:>' . $request->input('followers');
 
-        $devs = $this->githubApiService->searchDevs($query);
+        $page = $request->get('page', 1);
+
+        $devs = $this->githubApiService->searchDevs($query, $page);
 
         return view('dev.index', compact('devs'));
 
